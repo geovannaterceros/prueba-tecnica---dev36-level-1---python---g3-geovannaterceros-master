@@ -9,6 +9,8 @@ class QuestionConfiguration(object):
         self.supported_validations = supported_validations
 
     def convert_value(self, value):
+        if value in 4:
+            int(value)
         return value
 
 
@@ -19,7 +21,7 @@ class TextConfiguration(QuestionConfiguration):
 
 class NumericConfiguration(QuestionConfiguration):
     def __init__(self):
-        QuestionConfiguration.__init__(self, False, [ValidatorType.REQUIRED, ValidatorType.REQUIRED])
+        QuestionConfiguration.__init__(self, False, [ValidatorType.REQUIRED, ValidatorType.MIN_LENGTH])
 
 
 class DateConfiguration(QuestionConfiguration):
